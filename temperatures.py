@@ -1,10 +1,10 @@
 class Temperature:
-    """"""
+    """Represents a temperature in celsius, fahrenheit or kelvin with value and unit"""
 
     def __init__(self, value: float, unit: str) -> None:
         """Initialize the temperature object containing the value and unit"""
         self._value = value   # Read only attribute
-        self._unit = str.upper(unit)   # Read only attribute
+        self._unit = str.upper(unit)   # Read only attribute and unit is case-insensitive
 
         if self._unit not in ["C", "F", "K"]:
             raise ValueError('Unit must be either "C", "F", or "K"')
@@ -44,12 +44,19 @@ class Temperature:
 
     def convert_to(self, target_unit: str) -> Temperature:
         """Returns a new Temperature instance converted to target_unit"""
+        target_unit = str.upper(target_unit)   # Target unit is case-insensitive
 
         if target_unit not in ["C", "F", "K"]:
             raise ValueError('Unit must be either "C", "F", or "K"')
 
-        
-        
+        if target_unit == "C":
+            return Temperature(self.to_celsius(), "C")
+
+        elif target_unit == "F":
+            return Temperature(self.to_fahrenheit(), "F")
+
+        elif target_unit == "K":
+            return Temperature(self.to_kelvin(), "K")
 
     def __repr__(self) -> str:
         """Representation of temperature object"""
@@ -62,3 +69,15 @@ class Temperature:
         else:
             return f"The temperature is {self._value:.2f} {self._unit}"
 
+    def __eq__(self, other: Temperature) -> bool:
+        """Check if two temperatures are equal"""
+        if not isinstance(other, Temperature):
+            return NotImplemented
+        return self == other
+
+    def __ne__(self, other: Temperature) -> bool:
+        """Check if two temperatures are not equal"""
+        if not isinstance(other, Temperature):
+            return NotImplemented
+        return self != other
+    
