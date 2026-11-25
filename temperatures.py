@@ -6,7 +6,7 @@ class Temperature:
 
     TOL = 1e-9   # Tolerance for floating-point value comparisons
 
-    def __init__(self, value: float, unit: str) -> None:
+    def __init__(self, value: float, unit="C") -> None:
         """Initialize the temperature object containing the value and unit"""
         self._value = float(value)   # Read only attribute
         self._unit = str.upper(unit)   # Read only attribute and unit is case-insensitive
@@ -17,11 +17,19 @@ class Temperature:
         if self._value < 0 and self._unit == "K":
             raise ValueError('The temperature can not be below absolute zero (0 K)')
 
-        if self._value < 273.15 and self._unit == "C":
-            raise ValueError('The temperature can not be below absolute zero (273.15 C)')
+        if self._value < -273.15 and self._unit == "C":
+            raise ValueError('The temperature can not be below absolute zero (-273.15 C)')
 
         if self._value < -459.67 and self._unit == "F":
             raise ValueError('The temperature can not be below absolute zero (-459.67 F)')
+
+    @property   # Value is a read only attribute
+    def value(self):
+        return self._value
+
+    @property   # Unit is a read only attribute
+    def unit(self):
+        return self._unit
 
     def to_celsius(self) -> float:
         """Convert the temperatures in kelvin or fahrenheit to celsius"""
