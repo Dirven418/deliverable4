@@ -86,8 +86,8 @@ class Temperature:
     def is_equal(self, other: Temperature) -> bool:
         """Convert the temperatures to celsius and check if they are approximately equal"""
         return math.isclose(
-            self._value.to_celsius(),
-            other._value.to_celsius(),
+            self.to_celsius(),
+            other.to_celsius(),
             rel_tol=0,
             abs_tol=self.TOL
             )
