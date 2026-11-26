@@ -29,8 +29,6 @@ class Fraction:
         self.numerator = numerator
         self.denominator = denominator
 
-
-
     def __eq__(self, other: Fraction | int) -> bool:
         """Evaluates if a Fraction is equal to another Fraction or value"""
 
@@ -105,7 +103,7 @@ class Fraction:
                 return False
 
 
-    # might be unnecassary
+
     def __gt__(self, other: Fraction | int) -> bool:
         """Checks if self is greater than other"""
 
@@ -160,27 +158,6 @@ class Fraction:
             )
 
     def __call__(self) -> int | float:
-        """returns a float of the fraction"""
+        """returns a int or float for the fraction"""
         return self.numerator / self.denominator
 
-
-
-# tests that can be moved to its own test script
-# test1 = Fraction(1, 2)
-# test2 = Fraction(2, 4)
-# test3 = Fraction(1, 3)
-# test4 = Fraction(0.5, 2)
-
-# print(test1 < test2)
-# print(test1 == test2)
-# print(test1 > test2)
-# print(test1 > test3)
-
-# print(test1 > 1)
-# print(test1 < 1)
-
-# print(Fraction(4, 2) > 1)
-
-
-# print(test1)
-# print(repr(test1))
