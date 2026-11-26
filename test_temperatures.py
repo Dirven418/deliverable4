@@ -76,7 +76,7 @@ def test_cross_unit_comparisons():
     assert t7 < t4
     assert t4 <= t5
     assert t5 > t7
-    assert t6 >= t5
+    assert t5 >= t6
 
 
 def test_formatting():

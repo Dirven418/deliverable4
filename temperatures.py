@@ -39,6 +39,9 @@ class Temperature:
         elif self._unit == "F":
             return (self._value - 32) * 5 / 9
 
+        else:
+            return self._value
+
     def to_fahrenheit(self) -> float:
         """Convert the temperatures in celsius or kelvin to fahrenheit"""
         if self._unit == "C":
@@ -47,6 +50,9 @@ class Temperature:
         elif self._unit == "K":
             return (self._value - 273.15) * 9 / 5 + 32
 
+        else:
+            return self._value
+
     def to_kelvin(self) -> float:
         """Convert the temperatures in celsius or fahrenheit to kelvin"""
         if self._unit == "C":
@@ -54,6 +60,9 @@ class Temperature:
 
         elif self._unit == "F":
             return (self._value - 32) * 5 / 9 + 273.15
+
+        else:
+            return self._value
 
     def convert_to(self, target_unit: str) -> Temperature:
         """Returns a new Temperature instance converted to target_unit"""
