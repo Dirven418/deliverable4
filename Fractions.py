@@ -159,6 +159,10 @@ class Fraction:
             self.denominator * other.denominator
             )
 
+    def __call__(self) -> int | float:
+        """returns a float of the fraction"""
+        return self.numerator / self.denominator
+
 
 
 # tests that can be moved to its own test script
