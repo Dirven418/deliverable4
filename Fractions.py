@@ -40,14 +40,14 @@ class Fraction:
             else:
                 return False
 
-        # if other is a number the inverse fraction would be other over 1
+        # if other is a number the fraction would be other over 1
         except:
             if self.numerator * 1 == other * self.denominator:
                 return True
             else:
                 return False
 
-    # unnecessary as python can handle != using __eq__
+
     def __ne__(self, other: Fraction | int) -> bool:
         """Evaluates if a Fraction is not equal to another Fraction or value"""
 
