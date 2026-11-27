@@ -58,7 +58,7 @@ class Fraction:
                 return True
             else:
                 return False
-        
+
         # if other is a number the inverse fraction would be other over 1
         except:
             if self.numerator * 1 != other * self.denominator:
@@ -76,7 +76,7 @@ class Fraction:
                 return True
             else:
                 return False
-        
+
         # if other is a number the inverse fraction would be other over 1
         except:
             if self.numerator * 1 < other * self.denominator:
@@ -103,7 +103,6 @@ class Fraction:
                 return False
 
 
-
     def __gt__(self, other: Fraction | int) -> bool:
         """Checks if self is greater than other"""
 
@@ -121,8 +120,6 @@ class Fraction:
                 return True
             else:
                 return False
-
-
 
     def __ge__(self, other: Fraction | int) -> bool:
         """Checks if self is greater than or equal other"""
@@ -160,4 +157,3 @@ class Fraction:
     def __call__(self) -> int | float:
         """returns a int or float for the fraction"""
         return self.numerator / self.denominator
-
