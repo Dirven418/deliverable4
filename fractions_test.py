@@ -6,6 +6,7 @@ fraction1 = Fraction(1, 2)
 fraction2 = Fraction(2, 4)
 fraction3 = Fraction(1, 3)
 fraction4 = Fraction(2, 1)
+fraction5 = Fraction(-1, 2)
 
 # test ValueError for invalid fractions
 def test_fraction():
@@ -15,31 +16,40 @@ def test_fraction():
     with pytest.raises(ValueError):
         Fraction(0.5, 2)
 
+    with pytest.raises(ValueError):
+        Fraction(-1, -2)
+
 # test equality
 def test__eq__():
     assert fraction1 == fraction2
     assert not fraction1 == fraction3
+    assert not fraction1 == fraction5
     
 def test__ne__():
     assert fraction1 != fraction3
     assert not fraction1 != fraction2
+    assert fraction1 != fraction5
 
 def test__lt__():
     assert fraction3 < fraction1
     assert not fraction1 < fraction2
+    assert fraction5 < fraction1
 
 def test__le__():
     assert fraction1 <= fraction2
     assert fraction3 <= fraction1
+    assert fraction5 <= fraction1
     assert not fraction4 <= fraction1
 
 def test__gt__():
     assert fraction1 > fraction3
+    assert fraction1 > fraction5
     assert not fraction1 > fraction4
 
 def test__ge__():
     assert fraction1 >= fraction2
     assert fraction1 >= fraction3
+    assert fraction1 >= fraction5
     assert not fraction1 >= fraction4
 
 def test__repr__():
@@ -50,6 +60,7 @@ def test__str__():
 
 def test__mul__():
     assert fraction1 * fraction2 == Fraction(2, 8)
+    assert fraction1 * fraction5 == Fraction(-1, 4)
 
 def test__call__():
     assert fraction1() == pytest.approx(0.5)
